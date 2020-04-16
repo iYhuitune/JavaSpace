@@ -2,3 +2,227 @@
 Java学习交流、分享
 
 ![image](https://github.com/iYhuitune/JavaSpace/blob/master/images/jishuzhan.png)
+
+# 脑图
+```css
+全技术栈
+	负责均衡
+		F5
+			硬件负载
+		Nginx
+			反向代理技术
+	前台
+		Node.js
+		Angular.js
+		JQuery
+		nasharon
+		kjse
+		VUE
+	Java基础核心部分
+		集合
+			HashMap的底层原理
+				初始容量16，负载因子0.75
+				数据结构：数组+链表+红黑树（JAVA8以后）
+			List
+		java进阶篇
+			多线程
+				线程池
+				ThreadLocal原理
+			IO
+				高性能Netty框架
+				NIO
+			设计模式
+				单例模式
+				工厂模式
+				观察者模式
+				装饰者模式
+				享元模式
+				迭代器模式
+				策略模式
+	java性能调优
+		JVM
+			java类加载过程
+				加载
+				连接
+				初始化
+			java类加载机制
+				双亲委派机制
+				缓存机制
+				全局关联机制
+			java类加载器
+				根类加载器BootStrap Classloader
+				扩展类加载器Extension Classloader
+				系统类加载器App Classloader
+				用户类加载器Custom Classloader(ClassLoader的子类)
+			JVM内存模型
+				新生代（Eden,S0,S1）
+				老年代
+			JVM运行时数据区
+			垃圾回收器
+				回收算法
+					分代回收
+					复制回收
+					标志回收
+			分析GC日志，分析dump文件，查看内存使用情况，查找服务内存泄漏问题
+		重要
+	Spring框架
+		Spring
+			IOC控制翻转
+			AOP
+				静态代理
+				动态代理
+					cglib
+			JavaBean生命周期
+			JavaBean注入
+				注解
+					Component
+					Service
+					Autowire
+				XML
+			5种事务隔离级别
+				DEFAULT
+				READ_COMMIT
+				READ_UNCOMMIT
+				SYNCHYINIZED
+		SpringMVC框架原理
+		Spring-Mybatis整合
+	微服务框架
+		Spring-boot
+			去配置化框架，解耦服务，服务拆分，更容易开发，集成Tomcat容器
+			注解
+			application.yml
+		Spring-cloud
+			Zuul网关
+			Hytrix熔断，降级,容错
+			Eurka注册中心，服务的注册与消费
+			Feign负载均衡
+			Config配置中心
+			日志管理
+			监控中心
+		dubbo服务治理
+			Dubbo LoadBalance负载均衡原理
+			Dubbo 服务降级原理
+			Dubbo集群容错设计
+			dubbo基于zookeeper服务注册
+			dubbo服务发布原理
+		Maven构建，集成，部署
+		基于RPC框架
+	分布式中间件
+		分布式消息队列
+			Kafka
+			RabbitMQ框架
+		分布式缓存
+			Redis
+				luascript
+				主从复制，读写分离
+				哨兵模式
+				集群
+				缓存雪崩、击穿、穿透的解决方案
+					RDB和AOF
+				削峰，分流
+				布隆过滤器(BloomFilter)
+				跳跃表
+		分布式数据库的实现
+			Mycat（主要基于Mysql）
+				分库分表
+					垂直拆分
+					水平拆分
+				分片规则算法
+					一致性哈希算法
+					枚举法
+				schma.xml
+				rule.xml
+				Server.xml
+				注解技术
+				分布式锁
+		注册中心
+			Zookeeper
+				Leader选举策略
+				Watcher机制
+			Nacos
+		分布式事务的实现方式
+			通过JTA(java trantional API)思想实现分布式事务，JTA的实现插件atomiko
+		分布式锁的实现
+			1.基于Redis获取key值加锁setnx，设置expire锁超时时间
+			2.基于Mysql数据库创建控制锁表的方式加锁，自带关键字for update实现，每条记录就是一条锁记录，一般有加锁和解锁两条记录
+			3.通过中间件zookeeper添加叶子节点实现，哪个线程先创建了叶子节点，哪个线程就获取到锁
+	多线程与并发
+		Synchyicnized与ReetLock的区别
+		线程池
+		线程同步与互斥
+		线程状态与转换通信机制
+		乐观锁与悲观锁
+	数据库
+		Mysql
+			数据库基本原理
+			索引有哪几种类型，底层原理
+				BTree,B+ Tree
+				Hash
+			B树和B+树的区别
+			Sql优化方案
+				查看explain解释计划
+			事务特性、隔离级别
+			数据库连接池
+			覆盖索引
+				当根据普通索引select * from XXX的时候，查出了所有记录，这时会比较慢，只需要查出对应的主键id字段select id from XXX,在根据id字段进行子查询。这样避免查所有数据 
+			回表
+				由普通索引查找到主键id，再根据主键id的索引去查找对应数据，普通索引对应的B+树不存储实际数据，只存储主键id值
+			聚簇索引和非聚簇索引
+			InnoDB存储引擎
+				聚集索引，B+ Tree结构
+			MyiSAM存储引擎
+				非聚集索引 B Tree结构
+			LSM树
+	数据结构与算法
+		二叉树，红黑树
+		平衡二叉树
+		八大排序算法
+			冒泡算法 O(n2)
+			快速排序O(n*log(2)n)
+			插入排序
+			希尔排序
+			堆排序
+			选择排序
+		栈
+		堆
+		链表
+		树
+		数组
+		分治、动态规划、贪心算法
+		布隆过滤器
+		哈夫曼编码
+		经典问题TOPK
+		经典问题字符串
+	版本控制、运维集成、部署
+		自动化运维部署工具ansible
+			jinjia2
+			yml
+		Linux Shell脚本语言
+			RedHat
+			CentOS
+			Ubantu
+		docker与k8s
+		版本控制管理
+			GitHub
+				分布式版本控制
+			Git
+			GitLab
+			SVN
+	扩展
+		python语言
+	工具
+		IDEA
+		WebStrom
+		MemoryAnalyzer
+	计算机网络
+		TCP三次握手
+		TCP四次挥手
+		七层网络协议
+	面试
+		基础知识能力
+		数据结构与算法
+		系统设计能力，考虑因素点：缓存、IO、分库分表、负载均衡、高并发、高可用
+		常用中间件掌握程度：Redis、RocKetMQ、Dubbo
+		JVM解决排查方案
+		数据库知识，MySql索引，Sql优化方案
+```
